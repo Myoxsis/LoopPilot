@@ -93,3 +93,48 @@ def guess_supplier_name(
             best_match = candidate
 
     return best_match if best_match and best_score >= min_score else cleaned
+
+
+def guess_supplier_name_from_priority(
+    names: Sequence[Optional[str]],
+    known_suppliers: Sequence[str],
+    rules: Optional[Sequence[dict]] = None,
+    min_score: float = 0.7,
+) -> Optional[str]:
+    """Return the first resolved supplier name from a prioritized list.
+
+    Args:
+        names: Ordered raw supplier names to evaluate. Empty strings and
+            ``None`` values are skipped.
+        known_suppliers: Iterable of canonical supplier names to match
+            against.
+        rules: Optional list of rule dictionaries compatible with
+            :func:`utils_data_cleansing.apply_rule`. When provided, each raw
+            name is first normalized using these rules.
+        min_score: Minimum similarity score (0-1) required to accept a fuzzy
+            match. Defaults to ``0.7``.
+
+    Returns:
+        The first non-empty ``names`` entry that successfully resolves through
+        :func:`guess_supplier_name`. ``None`` when no values are provided or
+        ``known_suppliers`` is empty.
+    """
+
+    if not known_suppliers:
+        return None
+
+    for candidate in names:
+        if candidate is None:
+            continue
+
+        candidate = candidate.strip()
+        if not candidate:
+            continue
+
+        resolved = guess_supplier_name(
+            candidate, known_suppliers, rules=rules, min_score=min_score
+        )
+        if resolved is not None:
+            return resolved
+
+    return None

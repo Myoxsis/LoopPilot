@@ -4,7 +4,7 @@ Utility helpers and data files for normalizing supplier names and mapping them t
 
 ## Supplier name guessing utility (`utils_supplier_name.py`)
 
-`load_supplier_names(path)` reads supplier names from a semicolon-separated CSV file (e.g., `CONSIGNEE_NAME.csv`). `guess_supplier_name(name, known_suppliers, rules=None, min_score=0.7)` cleans the raw value, optionally applies normalization rules from `utils_data_cleansing`, and fuzzy matches it against a list of known supplier names.
+`load_supplier_names(path)` reads supplier names from a semicolon-separated CSV file (e.g., `CONSIGNEE_NAME.csv`). `guess_supplier_name(name, known_suppliers, rules=None, min_score=0.7)` cleans the raw value, optionally applies normalization rules from `utils_data_cleansing`, and fuzzy matches it against a list of known supplier names. When you have multiple candidate columns for a supplier name, `guess_supplier_name_from_priority(names, known_suppliers, rules=None, min_score=0.7)` evaluates them in order and returns the first resolved match.
 
 Example usage:
 
