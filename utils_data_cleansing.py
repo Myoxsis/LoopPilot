@@ -1,13 +1,21 @@
 #%%
 
 import re
-import yaml
+try:  # Optional dependency for loading YAML rule files
+    import yaml  # type: ignore
+except ImportError:  # pragma: no cover - only hit when PyYAML is missing
+    yaml = None
 from dataclasses import dataclass
 from typing import List, Optional
 
 #%%
 
 def load_rules(path):
+    if yaml is None:
+        raise ImportError(
+            "PyYAML is required to load rule files. Install it or provide rules manually."
+        )
+
     with open(path, "r", encoding="utf-8") as f:
         raw = yaml.safe_load(f) or {}
     rules = []
