@@ -1,5 +1,9 @@
 import os
-from utils_supplier_name import guess_supplier_name, load_supplier_names
+from utils_supplier_name import (
+    guess_supplier_name,
+    guess_supplier_name_from_priority,
+    load_supplier_names,
+)
 
 
 def test_load_supplier_names_reads_first_column(tmp_path):
@@ -33,3 +37,20 @@ def test_guess_supplier_name_returns_best_fuzzy_match():
 def test_guess_supplier_name_handles_missing_values():
     assert guess_supplier_name(None, ["Alpha"]) is None
     assert guess_supplier_name("test", [], []) is None
+
+
+def test_guess_supplier_name_from_priority_returns_first_valid_match():
+    known = ["Siemens", "Alstom", "Knorr Bremse"]
+    names = [None, "", "Siemen", "Fallback"]
+
+    result = guess_supplier_name_from_priority(names, known, rules=None, min_score=0.6)
+
+    assert result == "Siemens"
+
+
+def test_guess_supplier_name_from_priority_returns_none_when_no_candidates():
+    known = ["Alpha"]
+
+    result = guess_supplier_name_from_priority([], known)
+
+    assert result is None
