@@ -2,6 +2,23 @@
 
 Utility helpers and data files for normalizing supplier names and mapping them to geographic coordinates.
 
+## Supplier name guessing utility (`utils_supplier_name.py`)
+
+`load_supplier_names(path)` reads supplier names from a semicolon-separated CSV file (e.g., `CONSIGNEE_NAME.csv`). `guess_supplier_name(name, known_suppliers, rules=None, min_score=0.7)` cleans the raw value, optionally applies normalization rules from `utils_data_cleansing`, and fuzzy matches it against a list of known supplier names.
+
+Example usage:
+
+```python
+from utils_data_cleansing import load_rules
+from utils_supplier_name import guess_supplier_name, load_supplier_names
+
+rules = load_rules("rules.yml")
+known_suppliers = load_supplier_names("CONSIGNEE_NAME.csv")
+
+normalized = guess_supplier_name("Huebner GmbH", known_suppliers, rules=rules)
+print(normalized)  # Hubner
+```
+
 ## Data cleansing utility (`utils_data_cleansing.py`)
 
 `load_rules(path)` reads normalization rules from a YAML file, returning a list of dictionaries that include the `type`, `pattern`, and `replacement` keys found in the source file. The helper `apply_rule(text, rules)` lowercases and strips punctuation/stopwords via `rough_clean`, then applies the first matching rule. Supported rule types are:
