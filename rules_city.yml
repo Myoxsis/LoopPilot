@@ -1,0 +1,2164 @@
+rules:
+
+# A 
+- type: startswith
+  pattern: "amiens"
+  replacement: "Amiens"
+
+- type: startswith
+  pattern: "aamsterdam"
+  replacement: "Amsterdam"
+
+- type: startswith
+  pattern: "angers"
+  replacement: "Angers"
+
+- type: regex
+  pattern: "anvers|antwerp"
+  replacement: "Antwerpen"
+
+- type: startswith
+  pattern: "arrasate"
+  replacement: "Arrasate"
+
+- type: startswith
+  pattern: "asti"
+  replacement: "Asti"
+
+- type: regex
+  pattern: "augsbo?urg"
+  replacement: "Augsburg"
+
+- type: equals
+  pattern: "Aix-la-Chapelle"
+  replacement: "Aachen"
+
+- type: equals
+  pattern: "Alstenstadt"
+  replacement: "Altenstadt"
+
+- type: equals
+  pattern: "a Roca del Vallès"
+  replacement: "La Roca del Vallès"
+
+- type: regex
+  pattern: "adliswil"
+  replacement: "Adliswil"
+
+- type: equals
+  pattern: "Arifiye / SAKARYA"
+  replacement: "Arifiye"
+
+- type: equals
+  pattern: "Arcole (Verona)"
+  replacement: "Arcole"
+
+- type: equals
+  pattern: "Arhus C"
+  replacement: "Aarhus"
+
+
+# --- Case & spacing normalization ---
+- type: regex
+  pattern: "aix\\s+en\\s+provence\\s*-\\s*cedex\\s*03"
+  replacement: "Aix-en-Provence"
+
+- type: regex
+  pattern: "alcala\\s+de\\s+henares"
+  replacement: "Alcalá de Henares"
+
+- type: regex
+  pattern: "azuqueca\\s+de\\s+henares\\s*-\\s*guadalajara"
+  replacement: "Azuqueca de Henares"
+
+
+- type: regex
+  pattern: "ab\\s+hoogvliet"
+  replacement: "Hoogvliet"
+
+- type: regex
+  pattern: "annecy\\s+cedex"
+  replacement: "Annecy"
+
+# --- Handle arrondissement / region descriptors ---
+- type: regex
+  pattern: "arrondissement\\s+d['e]\\s*olpe"
+  replacement: "Olpe"
+
+- type: regex
+  pattern: "arrondissement\\s+de\\s+neumarkt.*"
+  replacement: "Neumarkt in der Oberpfalz"
+
+- type: regex
+  pattern: "arrondissement\\s+de\\s+reutlingen"
+  replacement: "Reutlingen"
+
+- type: regex
+  pattern: "arrondissement\\s+de\\s+rottweil"
+  replacement: "Rottweil"
+
+- type: regex
+  pattern: "arrondissement\\s+de\\s+schweinfurt"
+  replacement: "Schweinfurt"
+
+# --- Normalize accented variants ---
+- type: regex
+  pattern: "aytr[eé]"
+  replacement: "Aytré"
+
+- type: regex
+  pattern: "anderlecht"
+  replacement: "Anderlecht"
+
+# --- Handle common duplicates ---
+- type: regex
+  pattern: "arhus\\s+c"
+  replacement: "Aarhus"
+
+- type: regex
+  pattern: "arifiye\\s*/\\s*sakarya"
+  replacement: "Arifiye"
+
+- type: regex
+  pattern: "arlandastad"
+  replacement: "Arlandastad"
+
+
+# B
+- type: regex
+  pattern: "baden ?-?baden"
+  replacement: "Baden Baden"
+
+- type: startswith
+  pattern: "barcelon"
+  replacement: "Barcelona"
+
+- type: startswith
+  pattern: "Bâle"
+  replacement: "Basel"
+
+- type: regex
+  pattern: "bau(?:zt|tz)en"
+  replacement: "Bautzen"
+
+- type: startswith
+  pattern: "beasain"
+  replacement: "Beasain"
+
+- type: startswith
+  pattern: "berli"
+  replacement: "Berlin"
+
+- type : startswith
+  pattern : "Brandeb"
+  replacement : "Brandenburg"
+
+- type : startswith
+  pattern : "Brandenb"
+  replacement : "Brandenburg"
+
+- type: regex
+  pattern: "bord(?:e|é)res\\s+sur\\s+l[’'](?:e|é| )chez"
+  replacement: "Bordères-sur-l'Échez"
+
+# --- Spacing / hyphenation / case fixes ---
+
+- type: regex
+  pattern: "bad\\s*-\\s*tölz\\s*-\\s*wackersberg"
+  replacement: "Bad Tölz-Wackersberg"
+
+- type: regex
+  pattern: "bergisch\\s*-\\s*gladbach"
+  replacement: "Bergisch Gladbach"
+
+- type: regex
+  pattern: "berkel\\s+enschot"
+  replacement: "Berkel-Enschot"
+
+- type: regex
+  pattern: "bietigheim\\s+bissingen"
+  replacement: "Bietigheim-Bissingen"
+
+- type: regex
+  pattern: "biars\\s+sur\\s+c(?:e|è)re"
+  replacement: "Biars-sur-Cère"
+
+- type: regex
+  pattern: "böhl\\s*-\\s*iggelheim"
+  replacement: "Böhl-Iggelheim"
+
+- type: regex
+  pattern: "bremerh?afen\\s*-\\s*wulsdorf"
+  replacement: "Bremerhaven-Wulsdorf"
+
+- type: regex
+  pattern: "bellinzone"
+  replacement: "Bellinzona"
+
+- type: regex
+  pattern: "brann+enburg"
+  replacement: "Brannenburg"
+
+- type: regex
+  pattern: "br[üu]ehl"
+  replacement: "Brühl"
+
+- type: regex
+  pattern: "brueg+e|brugge|brugues?"
+  replacement: "Bruges"
+
+- type: regex
+  pattern: "bordeaux"
+  replacement: "Bordeaux"
+
+- type: regex
+  pattern: "bühl"
+  replacement: "Bühl"
+
+# --- Accents & language variants ---
+
+- type: regex
+  pattern: "bialo(?:gard|grad)"
+  replacement: "Białogard"
+
+- type: regex
+  pattern: "bytow"
+  replacement: "Bytów"
+
+- type: regex
+  pattern: "bohumin|bohum[íi]n"
+  replacement: "Bohumín"
+
+- type: regex
+  pattern: "brno"
+  replacement: "Brno"
+
+- type: regex
+  pattern: "brondy|brondby"
+  replacement: "Brøndby"
+
+- type: regex
+  pattern: "behren\\s+les\\s+forbach"
+  replacement: "Behren-lès-Forbach"
+
+- type: regex
+  pattern: "bettenbourg"
+  replacement: "Bettembourg"
+
+- type: regex
+  pattern: "bilbao"
+  replacement: "Bilbao"
+
+# --- Specific misspellings / canonicalizations ---
+
+- type: startswith
+  pattern: "bratislava 42"
+  replacement: "Bratislava"
+
+- type: startswith
+  pattern: "bratislava part ruzinov"
+  replacement: "Bratislava"
+
+- type: regex
+  pattern: "borderes\\s+sur\\s+i\\s*l[e’']chez"
+  replacement: "Bordères-sur-l'Échez"
+
+- type: regex
+  pattern: "bersee|bers[ée]"
+  replacement: "Bersée"
+
+- type: regex
+  pattern: "barl(?:eben|leben)"
+  replacement: "Barleben"
+
+- type: regex
+  pattern: "brieselang"
+  replacement: "Brieselang"
+
+- type: regex
+  pattern: "bret+en(?:-g[öo]lshausen)?"
+  replacement: "Bretten"
+
+- type: regex
+  pattern: "biberach/?r[iı]ß"
+  replacement: "Biberach/Riß"
+
+# --- Known confusion between similar names ---
+
+- type: regex
+  pattern: "bad\\s+urbach"
+  replacement: "Bad Urach"   # Corrects likely typo; 'Bad Urbach' doesn't exist in list of German spa towns
+
+- type: regex
+  pattern: "brunswick"
+  replacement: "Braunschweig"
+
+# --- Multi-language duplicates kept to one form seen in your data ---
+
+- type: startswith
+  pattern: "bruegge"
+  replacement: "Bruges"
+
+- type: startswith
+  pattern: "brugge"
+  replacement: "Bruges"
+
+- type: regex
+  pattern: "br[ü]ssel|bruxelles|bruxel"
+  replacement: "Bruxelles"
+
+# --- Safe normalizations for spacing/case in selected entries ---
+
+- type: regex
+  pattern: "bellach"
+  replacement: "Bellach"
+
+- type: regex
+  pattern: "belfort"
+  replacement: "Belfort"
+
+- type: regex
+  pattern: "bensheim"
+  replacement: "Bensheim"
+
+- type: regex
+  pattern: "bergheim(?:\\s+bei\\s+salzburg)?"
+  replacement: "Bergheim"
+
+- type: regex
+  pattern: "bergneustadt"
+  replacement: "Bergneustadt"
+
+- type: regex
+  pattern: "bleckede"
+  replacement: "Bleckede"
+
+- type: regex
+  pattern: "blagnac"
+  replacement: "Blagnac"
+
+- type: regex
+  pattern: "bludenz"
+  replacement: "Bludenz"
+
+- type: regex
+  pattern: "bocholt"
+  replacement: "Bocholt"
+
+- type: regex
+  pattern: "bodenfelde"
+  replacement: "Bodenfelde"
+
+- type: regex
+  pattern: "burgkirchen(?:\\s+an\\s+der\\s+alz)?"
+  replacement: "Burgkirchen an der Alz"
+
+- type: regex
+  pattern: "burgwedel"
+  replacement: "Burgwedel"
+
+# --- Deduplicate highly similar entries to one canonical spelling ---
+
+- type: regex
+  pattern: "bergisch\\s+gladbach|bergisch-?\\s*gladbach"
+  replacement: "Bergisch Gladbach"
+
+- type: regex
+  pattern: "biars-?\\s*sur-?\\s*c(?:e|è)re"
+  replacement: "Biars-sur-Cère"
+
+- type: regex
+  pattern: "bremerv[öo]rd[ei]r?"
+  replacement: "Bremervörde"
+
+- type: regex
+  pattern: "biel?efeld"
+  replacement: "Bielefeld"
+
+# C
+- type: regex
+  pattern: "charenton ?le ?pont"
+  replacement: "Charenton-Le-Pont"
+
+
+# --- Case & spacing normalization ---
+- type: regex
+  pattern: "cabanillo\\s+del\\s+campo"
+  replacement: "Cabanillas del Campo"
+
+- type: regex
+  pattern: "cabanillas\\s+del\\s+campo\\s+guadalajara"
+  replacement: "Cabanillas del Campo"
+
+- type: regex
+  pattern: "can\\s+tunis\\s+barcelona"
+  replacement: "Barcelona"
+
+- type: regex
+  pattern: "carini\\s+\\(.*\\)"
+  replacement: "Carini"
+
+
+# --- Handle accented variants ---
+- type: regex
+  pattern: "cerhenice|cerhencie|cerhince"
+  replacement: "Cerhenice"
+
+- type: regex
+  pattern: "cernex"
+  replacement: "Cernex"
+
+- type: regex
+  pattern: "cervell[oó]"
+  replacement: "Cervelló"
+
+- type: regex
+  pattern: "ceska\\s+lip[aá]|česká\\s+lípa"
+  replacement: "Česká Lípa"
+
+- type: regex
+  pattern: "ceska\\s+trebova"
+  replacement: "Česká Třebová"
+
+# --- Common duplicates ---
+- type: regex
+  pattern: "chard.*"
+  replacement: "Chard"
+
+- type: regex
+  pattern: "charlerol"
+  replacement: "Charleroi"
+
+- type: regex
+  pattern: "charenton\\s*-?\\s*le\\s*-?pont"
+  replacement: "Charenton-Le-Pont"
+
+- type: regex
+  pattern: "chambry|chamby"
+  replacement: "Chambry"
+
+- type: regex
+  pattern: "chemniz"
+  replacement: "Chemnitz"
+
+- type: regex
+  pattern: "chorzow|chorz[oó]w"
+  replacement: "Chorzów"
+
+# --- Normalize region descriptors ---
+- type: regex
+  pattern: "clarksburg.*"
+  replacement: "Clarksburg"
+
+- type: regex
+  pattern: "claustal\\s*-\\s*zellerfeld|clausthal\\s*-\\s*zellerfeld"
+  replacement: "Clausthal-Zellerfeld"
+
+- type: regex
+  pattern: "cluj.*"
+  replacement: "Cluj-Napoca"
+
+- type: regex
+  pattern: "coimbra.*"
+  replacement: "Coimbra"
+
+- type: regex
+  pattern: "cran\\s*-?\\s*gevrier"
+  replacement: "Cran-Gevrier"
+
+- type: regex
+  pattern: "crewe.*"
+  replacement: "Crewe"
+
+
+
+# D
+- type: startswith
+  pattern: "dresde"
+  replacement: "Dresden"
+
+- type: startswith
+  pattern: "dessau"
+  replacement: "Dessau-Roßlau"
+
+- type: startswith
+  pattern: "derby"
+  replacement: "Derby"
+
+- type: startswith
+  pattern: "dermbach"
+  replacement: "Dermbach-Gehaus"
+
+- type: startswith
+  pattern: "dillenburg"
+  replacement: "Dillenburg-Niederscheld"
+
+- type: regex
+  pattern : "d(?:ue|u|ü)(?:s|ss)eldorf"
+  replacement : "Dusseldorf"
+
+
+# --- Case & spacing normalization ---
+- type: regex
+  pattern: "d-\\s*83052\\s*bruckmühl"
+  replacement: "Bruckmühl"
+
+- type: regex
+  pattern: "dällikon"
+  replacement: "Dällikon"
+
+- type: regex
+  pattern: "dandenong.*"
+  replacement: "Dandenong"
+
+- type: regex
+  pattern: "dautphetal.*"
+  replacement: "Dautphetal"
+
+- type: regex
+  pattern: "dabrowa\\s+gornicza"
+  replacement: "Dąbrowa Górnicza"
+
+# --- Handle accented variants ---
+- type: regex
+  pattern: "döbeln"
+  replacement: "Döbeln"
+
+- type: regex
+  pattern: "dörfles\\s*-\\s*esbach"
+  replacement: "Dörfles-Esbach"
+
+- type: regex
+  pattern: "dülmen"
+  replacement: "Dülmen"
+
+# --- Common duplicates ---
+- type: regex
+  pattern: "demitz\\s*-\\s*thumitz.*"
+  replacement: "Demitz-Thumitz"
+
+- type: regex
+  pattern: "demmin"
+  replacement: "Demmin"
+
+- type: regex
+  pattern: "drawsko\\s+pomorski[e]?"
+  replacement: "Drawsko Pomorskie"
+
+- type: regex
+  pattern: "dubnica\\s+nad\\s+vahom"
+  replacement: "Dubnica nad Váhom"
+
+# --- Normalize region descriptors ---
+- type: regex
+  pattern: "devon\\s+plymouth"
+  replacement: "Plymouth"
+
+- type: regex
+  pattern: "duncan.*"
+  replacement: "Duncan"
+
+
+# --- Fix minor typos ---
+- type: regex
+  pattern: "dreiech|dreiech"
+  replacement: "Dreieich"
+
+- type: regex
+  pattern: "do[uü]ai"
+  replacement: "Douai"
+
+- type: regex
+  pattern: "dortmund"
+  replacement: "Dortmund"
+
+- type: regex
+  pattern: "drebach"
+  replacement: "Drebach"
+
+- type: regex
+  pattern: "drolshagen"
+  replacement: "Drolshagen"
+
+- type: regex
+  pattern: "duisbourg|duisburg"
+  replacement : "duisburg"
+
+
+# E
+
+# --- Case & spacing normalization ---
+- type: regex
+  pattern: "ebersbach\\s+an\\s+der\\s+fils"
+  replacement: "Ebersbach an der Fils"
+
+- type: regex
+  pattern: "ebersbach\\s*-\\s*neugersdorf"
+  replacement: "Ebersbach-Neugersdorf"
+
+- type: regex
+  pattern: "eberbach"
+  replacement: "Eberbach"
+
+- type: regex
+  pattern: "eislingen/?fils"
+  replacement: "Eislingen/Fils"
+
+- type: regex
+  pattern: "el\\s+dorado\\s+hills.*"
+  replacement: "El Dorado Hills"
+
+- type: regex
+  pattern: "ellwangen.*"
+  replacement: "Ellwangen"
+
+
+- type: regex
+  pattern: "erfurt.*"
+  replacement: "Erfurt"
+
+- type: regex
+  pattern: "evreux\\s+cedex"
+  replacement: "Évreux"
+
+# --- Handle accented variants ---
+- type: regex
+  pattern: "étrépagny|etrepagny"
+  replacement: "Étrépagny"
+
+- type: regex
+  pattern: "eufringen.*"
+  replacement: "Efringen-Kirchen"
+
+# --- Common duplicates ---
+- type: regex
+  pattern: "enneppetal"
+  replacement: "Ennepetal"
+
+- type: regex
+  pattern: "epselkamp|espelkamp"
+  replacement: "Espelkamp"
+
+- type: regex
+  pattern: "endigen.*"
+  replacement: "Endingen"
+
+- type: regex
+  pattern: "elixhausen"
+  replacement: "Elixhausen"
+
+- type: regex
+  pattern: "elstal"
+  replacement: "Elstal"
+
+- type: regex
+  pattern: "elterlein"
+  replacement: "Elterlein"
+
+# F
+
+- type: equals
+  pattern: "|francfort-sur-le-main"
+  replacement: "Frankfurt Am Main"
+
+- type: equals
+  pattern: "francfort sur le main"
+  replacement: "Frankfurt Am Main"
+
+- type: equals
+  pattern: "frankfurt"
+  replacement: "Frankfurt Am Main"
+
+- type: regex
+  pattern: "frankfurt ? ? ?main"
+  replacement: "Frankfurt Am Main"
+
+- type: regex
+  pattern: "frankfurt\\s+airport|frankfurt\\s*-\\s*flughafen"
+  replacement: "Frankfurt Airport"
+
+- type: regex
+  pattern: "frankfurt\\s+kalbach|frankfurt\\s*-\\s*kalbach"
+  replacement: "Frankfurt-Kalbach"
+
+- type: regex
+  pattern: "frankfurt\\s+am\\s+main"
+  replacement: "Frankfurt am Main"
+
+- type: regex
+  pattern: "frankfurt\\s*\\(oder\\)"
+  replacement: "Frankfurt (Oder)"
+
+- type: startswith
+  pattern: "forst"
+  replacement: "Forst"
+
+- type: startswith
+  pattern: "freiburg"
+  replacement: "Freiburg"
+
+# --- Case & spacing normalization ---
+- type: regex
+  pattern: "falun"
+  replacement: "Falun"
+
+- type: regex
+  pattern: "firenze"
+  replacement: "Firenze"
+
+# --- Handle accented variants ---
+- type: regex
+  pattern: "flensbourg|flensburg"
+  replacement: "Flensburg"
+
+- type: regex
+  pattern: "flen"
+  replacement: "Flen"
+
+- type: regex
+  pattern: "fontaine\\s+les\\s+dijon"
+  replacement: "Fontaine-lès-Dijon"
+
+# --- Common duplicates ---
+
+
+# --- Normalize region descriptors ---
+- type: regex
+  pattern: "furtwangen.*"
+  replacement: "Furtwangen"
+
+
+# --- Fix minor typos ---
+- type: regex
+  pattern: "foetz"
+  replacement: "Foetz"
+
+- type: regex
+  pattern: "friedrichshafen"
+  replacement: "Friedrichshafen"
+
+- type: regex
+  pattern: "frycovice"
+  replacement: "Fryčovice"
+
+
+
+# G
+- type: regex
+  pattern: "grünh[a|e]i[n|m] ? ?beierfeld"
+  replacement: "Grünhain-Beierfeld"
+
+- type: regex
+  pattern: "gda[ń|n]sk"
+  replacement: "Gdansk"
+
+- type: regex
+  pattern: "garching\\s*(b\\.?\\s*münchen|bei\\s*münchen|hochbrück|hochbrueck)?"
+  replacement: "Garching"
+
+- type: regex
+  pattern: "gatteo.*"
+  replacement: "Gatteo"
+
+- type: regex
+  pattern: "gen[eè]ve|geneva"
+  replacement: "Genève"
+
+- type: regex
+  pattern: "gipuzkoa"
+  replacement: "Gipuzkoa"
+
+- type: regex
+  pattern: "gothenburg|göteborg"
+  replacement: "Göteborg"
+
+- type: regex
+  pattern: "granges.*"
+  replacement: "Granges"
+
+- type: regex
+  pattern: "greater\\s+london"
+  replacement: "London"
+
+- type: regex
+  pattern: "greater\\s+noida"
+  replacement: "Greater Noida"
+
+- type: regex
+  pattern: "großröhrsdorf|großrüöhrsdorf|großröhrsdorf"
+  replacement: "Großröhrsdorf"
+
+- type: regex
+  pattern: "großebersdorf"
+  replacement: "Großebersdorf"
+
+- type: regex
+  pattern: "großostheim"
+  replacement: "Großostheim"
+
+- type: regex
+  pattern: "gynnia"
+  replacement: "Gdynia"
+
+
+
+# H
+- type: regex
+  pattern: "haifa\\s+bay|haifa\\s+huzot\\s+hamefraz|haïfa"
+  replacement: "Haifa"
+
+- type: regex
+  pattern: "halle\\s*\\(saale\\)|halle\\s*/\\s*saale|halle\\s*-?\\s*saale|halle/s[aä]ale|halle-sur-saale"
+  replacement: "Halle (Saale)"
+
+- type: regex
+  pattern: "halle/\\s*westfalen"
+  replacement: "Halle (Westfalen)"
+
+- type: regex
+  pattern: "hambrug|hambourg"
+  replacement: "Hamburg"
+
+- type: regex
+  pattern: "hamshire"
+  replacement: "Hampshire"
+
+- type: regex
+  pattern: "hannover|hanovre"
+  replacement: "Hannover"
+
+- type: regex
+  pattern: "harpstedt|haperstedt"
+  replacement: "Harpstedt"
+
+- type: regex
+  pattern: "hattingen|hattigen"
+  replacement: "Hattingen"
+
+- type: regex
+  pattern: "haßfurt|hassfurt"
+  replacement: "Haßfurt"
+
+- type: regex
+  pattern: "haßmersheim"
+  replacement: "Haßmersheim"
+
+- type: regex
+  pattern: "henningsdorf|hennigsdord|hennigsdorf"
+  replacement: "Hennigsdorf"
+
+- type: regex
+  pattern: "höchstädt\\s+an\\s+der\\s+donau|höchstädt"
+  replacement: "Höchstädt an der Donau"
+
+- type: regex
+  pattern: "heilbad\\s+heiligenstadt|heiligenstadt"
+  replacement: "Heilbad Heiligenstadt"
+
+- type: regex
+  pattern: "heidenheim.*"
+  replacement: "Heidenheim an der Brenz"
+
+- type: regex
+  pattern: "heiligenhaus"
+  replacement: "Heiligenhaus"
+
+- type: regex
+  pattern: "heidelberg"
+  replacement: "Heidelberg"
+
+- type: regex
+  pattern: "heinsdorfergrund|heinersdorfergrund"
+  replacement: "Heinsdorfergrund"
+
+- type: regex
+  pattern: "hippoltsein|hilpostein|hilpotstein"
+  replacement: "Hilpoltstein"
+
+- type: regex
+  pattern: "hisings-backa|hishings\\s+backa|hilsings\\s+backa"
+  replacement: "Hisings Backa"
+
+# I
+- type: regex
+  pattern: "ilford\\s*/\\s*essex"
+  replacement: "Ilford"
+
+- type: regex
+  pattern: "illerrieden"
+  replacement: "Illerrieden"
+
+- type: regex
+  pattern: "immenhausen"
+  replacement: "Immenhausen"
+
+- type: regex
+  pattern: "immendingen"
+  replacement: "Immendingen"
+
+- type: regex
+  pattern: "ingelfingen"
+  replacement: "Ingelfingen"
+
+- type: regex
+  pattern: "iserlohn"
+  replacement: "Iserlohn"
+
+- type: regex
+  pattern: "isernhagen"
+  replacement: "Isernhagen"
+
+- type: regex
+  pattern: "isselburg"
+  replacement: "Isselburg"
+
+- type: regex
+  pattern: "inowroclaw|inowrocław"
+  replacement: "Inowrocław"
+
+- type: regex
+  pattern: "iségh[eé]m|izegem"
+  replacement: "Izegem"
+
+- type: regex
+  pattern: "iłsenburg|ilsenburg"
+  replacement: "Ilsenburg"
+
+- type: regex
+  pattern: "itzehohe"
+  replacement: "Itzehoe"
+
+- type: regex
+  pattern: "iéna"
+  replacement: "Jena"
+
+- type: regex
+  pattern: "istanbul"
+  replacement: "Istanbul"
+
+- type: regex
+  pattern: "innsbruck"
+  replacement: "Innsbruck"
+
+# J
+- type: regex
+  pattern: "jerusalem|jérusalem"
+  replacement: "Jerusalem"
+
+- type: regex
+  pattern: "johannesburg|johannesbourg"  
+  replacement: "johannesburg"
+
+- type: regex
+  pattern: "joué-les-tours"
+  replacement: "Joué-lès-Tours"
+
+- type: regex
+  pattern: "jablonn[eé]\\s+v\\s+podje[sš]t[eě]d[ií]"
+  replacement: "Jablonné v Podještědí"
+
+- type: regex
+  pattern: "jaszber[eé]ny"
+  replacement: "Jászberény"
+
+- type: regex
+  pattern: "jelcz-laskowice"
+  replacement: "Jelcz-Laskowice"
+
+- type: regex
+  pattern: "ji[rř]ikov"
+  replacement: "Jiříkov"
+
+- type: regex
+  pattern: "jeddah.*"
+  replacement: "Jeddah"
+
+- type: regex
+  pattern: "jemgum"
+  replacement: "johgum"
+
+
+# K
+- type: equals
+  pattern: "cassel"
+  replacement: "Kassel"
+
+- type: startswith
+  pattern: "kassel"
+  replacement: "Kassel"
+
+- type: equals
+  pattern: "cologne"
+  replacement: "Köln"
+
+- type: regex
+  pattern: "k(?:oe|ö)ln"
+  replacement: "Köln"
+
+- type : startswith
+  pattern : "kreuztal-buschhütten"
+  replacement : "Kreuztal"
+
+- type : regex
+  pattern : "kol[i|ì|í]n"
+  replacement : "Kolin"
+
+- type : regex
+  pattern : "ko(?:pp|p)enhagen"
+  replacement : "Kopenhagen"
+
+- type : startswith
+  pattern : "kobenhavn"
+  replacement : "Kobenhavn"
+
+- type : startswith
+  pattern : "künzelsau"
+  replacement : "Künzelsau"
+
+- type : startswith
+  pattern : "krailling"
+  replacement : "Krailling"
+
+- type : startswith
+  pattern : "krefeld"
+  replacement : "Krefeld"
+
+- type: regex
+  pattern: "kaelsruhe|karlsruhe|karl?sruhe"
+  replacement: "Karlsruhe"
+
+- type: regex
+  pattern: "kempten.*"
+  replacement: "Kempten"
+
+- type: regex
+  pattern: "klagenfurt|klagemfurt"
+  replacement: "Klagenfurt"
+
+- type: regex
+  pattern: "komarom"
+  replacement: "Komárom"
+
+# --- Handle accented variants ---
+- type: regex
+  pattern: "ka[nń]czuga|kanczuga"
+  replacement: "Kańczuga"
+
+- type: regex
+  pattern: "kecskemet|kecskem[eé]t"
+  replacement: "Kecskemét"
+
+- type: regex
+  pattern: "kerekegyh[aá]za"
+  replacement: "Kerekegyháza"
+
+- type: regex
+  pattern: "kóph[aá]za"
+  replacement: "Kópháza"
+
+- type: regex
+  pattern: "korn[eé]ubourg|korn[eé]uburg|korn[eé]ubrug|krorneuburg"
+  replacement: "Korneuburg"
+
+- type: regex
+  pattern: "königsbrück|konigsbruck"
+  replacement: "Königsbrück"
+
+- type: regex
+  pattern: "kobenhavn|kopenhagen"
+  replacement: "København"
+
+- type: regex
+  pattern: "krakow|krak[oó]w"
+  replacement: "Kraków"
+
+- type: regex
+  pattern: "krems\\s+an\\s+der\\s+donau"
+  replacement: "Krems an der Donau"
+
+- type: regex
+  pattern: "kematen.*"
+  replacement : "Kematen"  
+
+
+# L
+- type : regex
+  pattern : "[l|Ł][o|ó]d[z|ź]"
+  replacement : "Lodz"
+
+
+# --- Case & spacing normalization ---
+- type: regex
+  pattern: "la\\s+llagosta|la\\s+liagost[aá]"
+  replacement: "La Llagosta"
+
+- type: regex
+  pattern: "la\\s+rochelle"
+  replacement: "La Rochelle"
+
+- type: regex
+  pattern: "la\\s+ville\\s+aux\\s+dames"
+  replacement: "La Ville-aux-Dames"
+
+- type: regex
+  pattern: "lahr.*"
+  replacement: "Lahr"
+
+- type: regex
+  pattern: "lahntal.*"
+  replacement: "Lahntal"
+
+- type: regex
+  pattern: "lainate"
+  replacement: "Lainate"
+
+- type: regex
+  pattern: "landsberg.*"
+  replacement: "Landsberg"
+
+- type: regex
+  pattern: "langenfeld.*"
+  replacement: "Langenfeld"
+
+- type: regex
+  pattern: "las\\s+rozas.*"
+  replacement: "Las Rozas"
+
+- type: regex
+  pattern: "lauffen\\s+am\\s+neckar"
+  replacement: "Lauffen am Neckar"
+
+- type: regex
+  pattern: "lazkao.*"
+  replacement: "Lazkao"
+
+- type: regex
+  pattern: "le\\s+creusot"
+  replacement: "Le Creusot"
+
+- type: regex
+  pattern: "le\\s+mans"
+  replacement: "Le Mans"
+
+- type: regex
+  pattern: "leicester|leicestershire"
+  replacement: "Leicester"
+
+- type: regex
+  pattern: "lisbon|lisbonne|lissabon"
+  replacement: "Lisbon"
+
+- type: regex
+  pattern: "lodz|łódź"
+  replacement: "Łódź"
+
+- type: regex
+  pattern: "london|londres"
+  replacement: "London"
+
+- type: regex
+  pattern: "lübeck|lubeck"
+  replacement: "Lübeck"
+
+- type: regex
+  pattern: "luxembourg|luxemburg"
+  replacement: "Luxembourg"
+
+
+# M
+- type: equals
+  pattern: "munich"
+  replacement: "München"
+
+- type : equals
+  pattern : "mannheim-neckerau"
+  replacement : "Mannheim"
+
+- type : regex
+  pattern : "müh?lheim an der ruhr|mülheim a.d.ruhr|müh?lheim"
+  replacement : "Mülheim"
+
+- type: regex
+  pattern: "magdebourg|magdeburg"
+  replacement: "Magdeburg"
+
+- type: regex
+  pattern: "mainz.*"
+  replacement: "Mainz"
+
+- type: regex
+  pattern: "malaga"
+  replacement: "Málaga"
+
+- type: regex
+  pattern: "mark\\s+schwaben"
+  replacement: "Markt Schwaben"
+
+- type: regex
+  pattern: "marktheidenfeld"
+  replacement: "Marktheidenfeld"
+
+- type: regex
+  pattern: "massa\\s+lombarda"
+  replacement: "Massa Lombarda"
+
+- type: regex
+  pattern: "mátranovák|matranovak"
+  replacement: "Mátranovák"
+
+- type: regex
+  pattern: "meyrin.*"
+  replacement: "Meyrin"
+
+- type: regex
+  pattern: "meyzieu\\s+cedex"
+  replacement: "Meyzieu"
+
+- type: regex
+  pattern: "miejska\\s+g[oó]rka"
+  replacement: "Miejska Górka"
+
+- type: regex
+  pattern: "milano|milan"
+  replacement: "Milano"
+
+- type: regex
+  pattern: "moedling|mödling"
+  replacement: "Mödling"
+
+- type: regex
+  pattern: "modrice|modřice"
+  replacement: "Modřice"
+
+- type: regex
+  pattern: "muehlhausen|mühlhausen.*"
+  replacement: "Mühlhausen"
+
+- type: regex
+  pattern: "mühldorf.*"
+  replacement: "Mühldorf"
+
+- type: regex
+  pattern: "muenchen|münchen.*"
+  replacement: "München"
+
+# N
+- type: equals
+  pattern: "netphen-dreis-tiefenbach"
+  replacement: "Netphen"
+
+- type: equals
+  pattern: "nuremberg"
+  replacement: "Nürnberg"
+
+- type : startswith
+  pattern : "nilü"
+  replacement : "Nilüfer"
+
+- type: regex
+  pattern: "nakskorv|nakskov"
+  replacement: "Nakskov"
+
+- type: regex
+  pattern: "nanjing.*"
+  replacement: "Nanjing"
+
+- type: regex
+  pattern: "naples|napoli"
+  replacement: "Napoli"
+
+- type: regex
+  pattern: "neubourg.*|neuburg.*"
+  replacement: "Neuburg"
+
+- type: regex
+  pattern: "neubrandenbourg|neubrandenburg"
+  replacement: "Neubrandenburg"
+
+- type: regex
+  pattern: "neuhaus.*"
+  replacement: "Neuhaus"
+
+- type: regex
+  pattern: "neumarkt.*"
+  replacement: "Neumarkt"
+
+- type: regex
+  pattern: "neumuenster|neumünster"
+  replacement: "Neumünster"
+
+- type: regex
+  pattern: "neunburg.*"
+  replacement: "Neunburg"
+
+- type: regex
+  pattern: "neus[aä]ß"
+  replacement: "Neusäß"
+
+- type: regex
+  pattern: "neuss"
+  replacement: "Neuss"
+
+- type: regex
+  pattern: "neustadt.*"
+  replacement: "Neustadt"
+
+- type: regex
+  pattern: "niefern-ösch[eé]lbronn"
+  replacement: "Niefern-Öschelbronn"
+
+- type: regex
+  pattern: "nienburg.*"
+  replacement: "Nienburg"
+
+- type: regex
+  pattern: "nienstaedt|nienstädt"
+  replacement: "Nienstädt"
+
+- type: regex
+  pattern: "nippes.*"
+  replacement: "Nippes"
+
+- type: regex
+  pattern: "nörten-hardenberg|noerten-hardenberg"
+  replacement: "Nörten-Hardenberg"
+
+- type: regex
+  pattern: "norsborg.*"
+  replacement: "Norsborg"
+
+- type: regex
+  pattern: "nov[aá]\\s+ves"
+  replacement: "Nová Ves"
+
+- type: regex
+  pattern: "nowy\\s+tomys[lł]"
+  replacement: "Nowy Tomyśl"
+
+- type: regex
+  pattern: "nussdorf|nußdorf.*"
+  replacement: "Nußdorf"
+
+- type: regex
+  pattern: "nur-sultan.*"
+  replacement: "Nur-Sultan"
+
+- type: regex
+  pattern: "nurnberg|nürnberg.*"
+  replacement: "Nürnberg"
+
+- type: regex
+  pattern: "nýřany|nyrany"
+  replacement: "Nýřany"
+
+- type: regex
+  pattern: "nykøbing\\s*f"
+  replacement: "Nykøbing F"
+
+- type: regex
+  pattern: "nördlingen|noerdlingen"
+  replacement: "Nördlingen"
+
+
+# O
+
+- type : regex
+  pattern : "onn?an?inn?g"
+  replacement : "Onnaing"
+
+- type: regex
+  pattern: "obergurig.*"
+  replacement: "Obergurig"
+
+- type: regex
+  pattern: "oberhausen.*"
+  replacement: "Oberhausen"
+
+- type: regex
+  pattern: "odense\\s+s"
+  replacement: "Odense"
+
+- type: regex
+  pattern: "offenbach.*"
+  replacement: "Offenbach"
+
+- type: regex
+  pattern: "oggiona\\s+s\\.\\s*stefano"
+  replacement: "Oggiona S. Stefano"
+
+- type: regex
+  pattern: "olawa"
+  replacement: "Oława"
+
+- type: regex
+  pattern: "oldenbourg|oldenburg"
+  replacement: "Oldenburg"
+
+- type: regex
+  pattern: "opacz.*"
+  replacement: "Opacz"
+
+- type: regex
+  pattern: "oranienbourg|oranienburg"
+  replacement: "Oranienburg"
+
+- type: regex
+  pattern: "osoppo.*"
+  replacement: "Osoppo"
+
+- type: regex
+  pattern: "ostrava.*"
+  replacement: "Ostrava"
+
+- type: regex
+  pattern: "osterode.*"
+  replacement: "Osterode"
+
+- type: regex
+  pattern: "ostr[oó]w\\s+wielkopolski"
+  replacement: "Ostrów Wielkopolski"
+
+- type: regex
+  pattern: "ozoir-la\\s+ferriere.*"
+  replacement: "Ozoir-la-Ferrière"
+
+- type: regex
+  pattern: "österreich.*"
+  replacement: "Österreich"
+
+
+# P
+- type : startswith
+  pattern : "prag"
+  replacement : "Prague"
+
+- type : startswith
+  pattern : "praha"
+  replacement : "Prague"
+
+
+# --- Case & spacing normalization ---
+- type: regex
+  pattern: "paderborn"
+  replacement: "Paderborn"
+
+- type: regex
+  pattern: "padborg"
+  replacement: "Padborg"
+
+- type: regex
+  pattern: "padova.*"
+  replacement: "Padova"
+
+- type: regex
+  pattern: "paina\\s+battolla"
+  replacement: "Paina Battolla"
+
+- type: regex
+  pattern: "paris.*"
+  replacement: "Paris"
+
+- type: regex
+  pattern: "passirano.*"
+  replacement: "Passirano"
+
+- type: regex
+  pattern: "paskov"
+  replacement: "Paskov"
+
+- type: regex
+  pattern: "payerne"
+  replacement: "Payerne"
+
+- type: regex
+  pattern: "peine"
+  replacement: "Peine"
+
+- type: regex
+  pattern: "penig"
+  replacement: "Penig"
+
+- type: regex
+  pattern: "perpetua\\s+de\\s+mogoda"
+  replacement: "Perpetua de Mogoda"
+
+- type: regex
+  pattern: "perugia"
+  replacement: "Perugia"
+
+- type: regex
+  pattern: "persan"
+  replacement: "Persan"
+
+- type: regex
+  pattern: "petit\\s+quevilly.*"
+  replacement: "Petit Quevilly"
+
+- type: regex
+  pattern: "petite\\s*-?\\s*for[eê]t"
+  replacement: "Petite-Forêt"
+
+- type: regex
+  pattern: "pfäffikon"
+  replacement: "Pfäffikon"
+
+- type: regex
+  pattern: "pfarrkirchen"
+  replacement: "Pfarrkirchen"
+
+- type: regex
+  pattern: "pfungen"
+  replacement: "Pfungen"
+
+- type: regex
+  pattern: "pforzheim"
+  replacement: "Pforzheim"
+
+- type: regex
+  pattern: "piacenza"
+  replacement: "Piacenza"
+
+- type: regex
+  pattern: "piaseczno"
+  replacement: "Piaseczno"
+
+- type: regex
+  pattern: "pieksämäki"
+  replacement: "Pieksämäki"
+
+- type: regex
+  pattern: "pilzno"
+  replacement: "Pilzno"
+
+- type: regex
+  pattern: "pilsen|plzen.*|plzeň.*"
+  replacement: "Plzeň"
+
+- type: regex
+  pattern: "piossasco.*"
+  replacement: "Piossasco"
+
+- type: regex
+  pattern: "pioltello.*"
+  replacement: "Pioltello"
+
+- type: regex
+  pattern: "pinto.*"
+  replacement: "Pinto"
+
+- type: regex
+  pattern: "pistoia"
+  replacement: "Pistoia"
+
+- type: regex
+  pattern: "plau\\s+am\\s+see"
+  replacement: "Plau am See"
+
+- type: regex
+  pattern: "podleze|podłęże"
+  replacement: "Podłęże"
+
+- type: regex
+  pattern: "port\\s+huron"
+  replacement: "Port Huron"
+
+- type: regex
+  pattern: "porta\\s*-?\\s*westfalica"
+  replacement: "Porta Westfalica"
+
+- type: regex
+  pattern: "pozna[nń]"
+  replacement: "Poznań"
+
+- type: regex
+  pattern: "pren[zž]lau"
+  replacement: "Prenzlau"
+
+- type: regex
+  pattern: "pr[eě]h[yý]sov"
+  replacement: "Přehýšov"
+
+- type: regex
+  pattern: "pruszcz\\s+gd[aą]nski"
+  replacement: "Pruszcz Gdański"
+
+- type: regex
+  pattern: "pszcz[oó]lki"
+  replacement: "Pszczółki"
+
+- type: regex
+  pattern: "pullheim"
+  replacement: "Pulheim"
+
+# Q
+- type: regex
+  pattern: "qingdao"
+  replacement: "Qingdao"
+
+
+# R
+- type: regex
+  pattern: "rottingen"
+  replacement: "Röttingen"
+
+- type: regex
+  pattern: "randers\\s+nv"
+  replacement: "Randers"
+
+- type: regex
+  pattern: "rom"
+  replacement: "Rome"
+
+- type: regex
+  pattern: "rotterdam.*"
+  replacement: "Rotterdam"
+
+- type: regex
+  pattern: "rubi|rubí"
+  replacement: "Rubí"
+
+- type: regex
+  pattern: "rossano\\s+veneto"
+  replacement: "Rossano Veneto"
+
+- type: regex
+  pattern: "reinprechtspölla"
+  replacement: "Reinprechtspölla"
+
+- type: regex
+  pattern: "rho.*"
+  replacement: "Rho"
+
+- type: regex
+  pattern: "ramat\\s+gan"
+  replacement: "Ramat Gan"
+
+- type: regex
+  pattern: "regis\\s*-?\\s*breitingen"
+  replacement: "Regis-Breitingen"
+
+- type: regex
+  pattern: "ralbitz\\s*-\\s*rosenthal"
+  replacement: "Ralbitz-Rosenthal"
+
+- type: regex
+  pattern: "röttenbach|roettenbach"
+  replacement: "Röttenbach"
+
+- type: regex
+  pattern: "rötha.*"
+  replacement: "Rötha"
+
+
+# S 
+- type: regex
+  pattern: "sabl[eé]-sur-sarthe"
+  replacement: "Sablé-sur-Sarthe"
+
+- type: regex
+  pattern: "sankt\\s+andreasberg"
+  replacement: "Sankt Andreasberg"
+
+- type: regex
+  pattern: "sankt\\s+p[öo]lten"
+  replacement: "Sankt Pölten"
+
+- type: regex
+  pattern: "sankt\\s+wolfgang.*"
+  replacement: "Sankt Wolfgang"
+
+- type: regex
+  pattern: "san\\s+sebastian"
+  replacement: "San Sebastián"
+
+- type: regex
+  pattern: "santa\\s+perpetua.*"
+  replacement: "Santa Perpetua de Mogoda"
+
+- type: regex
+  pattern: "sar[oó]nno"
+  replacement: "Saronno"
+
+- type: regex
+  pattern: "saint\\s+amand\\s+les\\s+eaux"
+  replacement: "Saint-Amand-les-Eaux"
+
+- type: regex
+  pattern: "saint\\s+apollinaire"
+  replacement: "Saint-Apollinaire"
+
+- type: regex
+  pattern: "saint\\s+bonnet\\s+de\\s+mure"
+  replacement: "Saint-Bonnet-de-Mure"
+
+- type: regex
+  pattern: "saint\\s+denis.*"
+  replacement: "Saint-Denis"
+
+- type: regex
+  pattern: "saint\\s+etienne.*"
+  replacement: "Saint-Étienne"
+
+- type: regex
+  pattern: "saint\\s+florentin"
+  replacement: "Saint-Florentin"
+
+- type: regex
+  pattern: "saint\\s+junien.*"
+  replacement: "Saint-Junien"
+
+- type: regex
+  pattern: "saint\\s+ouen.*"
+  replacement: "Saint-Ouen"
+
+- type: regex
+  pattern: "saint\\s+peray"
+  replacement: "Saint-Péray"
+
+- type: regex
+  pattern: "saint\\s+pierre.*"
+  replacement: "Saint-Pierre-des-Corps"
+
+- type: regex
+  pattern: "saint\\s+priest"
+  replacement: "Saint-Priest"
+
+- type: regex
+  pattern: "saintcyr"
+  replacement: "Saint-Cyr"
+
+- type: regex
+  pattern: "sainte\\s+maure.*"
+  replacement: "Sainte-Maure-de-Touraine"
+
+- type: regex
+  pattern: "schönwalde.*"
+  replacement: "Schönwalde"
+
+- type: regex
+  pattern: "schöneiche.*"
+  replacement: "Schöneiche bei Berlin"
+
+- type: regex
+  pattern: "schwechat|schwechart"
+  replacement: "Schwechat"
+
+- type: regex
+  pattern: "seevetal.*"
+  replacement: "Seevetal"
+
+- type: regex
+  pattern: "siegen.*"
+  replacement: "Siegen"
+
+- type: regex
+  pattern: "siroki\\s+brijeg"
+  replacement: "Široki Brijeg"
+
+- type: regex
+  pattern: "sohland.*"
+  replacement: "Sohland an der Spree"
+
+- type: regex
+  pattern: "sona.*"
+  replacement: "Sona"
+
+- type: regex
+  pattern: "solms.*"
+  replacement: "Solms"
+
+- type: regex
+  pattern: "sostanj"
+  replacement: "Šoštanj"
+
+- type: regex
+  pattern: "spino.*"
+  replacement: "Spino d'Adda"
+
+- type: regex
+  pattern: "stalowa\\s+wola"
+  replacement: "Stalowa Wola"
+
+- type: regex
+  pattern: "stanovice.*"
+  replacement: "Stanovice"
+
+- type: regex
+  pattern: "stasfurt"
+  replacement: "Staßfurt"
+
+- type: regex
+  pattern: "stenovice"
+  replacement: "Štěnovice"
+
+- type: regex
+  pattern: "steinbach.*"
+  replacement: "Steinbach-Hallenberg"
+
+- type: regex
+  pattern: "steisslingen"
+  replacement: "Steißlingen"
+
+- type: regex
+  pattern: "stud[eé]nka.*"
+  replacement: "Studénka"
+
+- type: regex
+  pattern: "stuttgart.*"
+  replacement: "Stuttgart"
+
+- type: regex
+  pattern: "swadlincote.*"
+  replacement: "Swadlincote"
+
+- type: regex
+  pattern: "swietochlowice"
+  replacement: "Świętochłowice"
+
+- type: regex
+  pattern: "swarozyn"
+  replacement: "Swarożyn"
+
+- type: regex
+  pattern: "szem[eé]ac.*"
+  replacement: "Séméac"
+
+- type: regex
+  pattern: "szentgotth[aá]rd"
+  replacement: "Szentgotthárd"
+
+- type: regex
+  pattern: "szentl[őo]rinc"
+  replacement: "Szentlőrinc"
+
+
+# T
+- type: regex
+  pattern: "tavernelle\\s+val\\s+di\\s+pesa.*"
+  replacement: "Tavernelle Val di Pesa"
+
+- type: regex
+  pattern: "tavernelle\\s+di\\s+panicale"
+  replacement: "Tavernelle di Panicale"
+
+- type: regex
+  pattern: "tavernelle$"
+  replacement: "Tavernelle"
+
+- type: regex
+  pattern: "tegna.*"
+  replacement: "Tegna"
+
+- type: regex
+  pattern: "thollon\\s+les\\s+m[eé]mises.*"
+  replacement: "Thollon-les-Mémises"
+
+- type: regex
+  pattern: "tipton.*"
+  replacement: "Tipton"
+
+- type: regex
+  pattern: "tiszavasvari|tiszavasvári"
+  replacement: "Tiszavasvári"
+
+- type: regex
+  pattern: "torun|toru[nń]"
+  replacement: "Toruń"
+
+- type: regex
+  pattern: "trapagaran.*|trapaga.*|valle\\s+de\\s+tr[aá]paga.*"
+  replacement: "Trapagaran"
+
+- type: regex
+  pattern: "trnovec.*"
+  replacement: "Trnovec"
+
+- type: regex
+  pattern: "treuenbrietzen|tra[uü]enbrietzen"
+  replacement: "Treuenbrietzen"
+
+- type: regex
+  pattern: "tremosnice|třemošnice"
+  replacement: "Třemošnice"
+
+- type: regex
+  pattern: "trezzano\\s+sul\\s+naviglio.*"
+  replacement: "Trezzano sul Naviglio"
+
+- type: regex
+  pattern: "tv\\s+`s-hertogenbosch"
+  replacement: "'s-Hertogenbosch"
+
+- type: regex
+  pattern: "toru[nń]"
+  replacement : "Torun"
+
+# U
+- type: regex
+  pattern: "uelzen.*"
+  replacement: "Uelzen"
+
+- type: regex
+  pattern: "ulm.*"
+  replacement: "Ulm"
+
+- type: regex
+  pattern: "usti\\s+nad\\s+labem.*|ùsti\\s+nad\\s+labem.*"
+  replacement: "Ústí nad Labem"
+
+- type: regex
+  pattern: "ume[aå]"
+  replacement: "Umeå"
+
+- type: regex
+  pattern: "urnieta.*"
+  replacement: "Urnieta"
+
+- type: regex
+  pattern: "ústi\\s+nad\\s+labem.*"
+  replacement: "Ústí nad Labem"
+
+- type: regex
+  pattern: "ü[l]zen"
+  replacement : "Ulzen"
+
+
+
+# V
+- type: regex
+  pattern: "v(?:ae|a|ä)ster[a|å]s"
+  replacement: "Västeras"
+
+- type: equals
+  pattern: "finnslätten västeras"
+  replacement: "Västeras"
+
+
+# --- Case & spacing normalization ---
+- type: regex
+  pattern: "vado\\s+ligure.*"
+  replacement: "Vado Ligure"
+
+- type: regex
+  pattern: "vaihingen.*"
+  replacement: "Vaihingen an der Enz"
+
+- type: regex
+  pattern: "valle\\s+de\\s+tr[aá]paga.*"
+  replacement: "Trapagaran"
+
+- type: regex
+  pattern: "vetschau.*"
+  replacement: "Vetschau/Spreewald"
+
+- type: regex
+  pattern: "vicalvaro.*"
+  replacement: "Vicálvaro"
+
+- type: regex
+  pattern: "vicence|vicenza.*|vincenza.*"
+  replacement: "Vicenza"
+
+- type: regex
+  pattern: "vienna|wien.*"
+  replacement: "Wien"
+
+- type: regex
+  pattern: "villeneuve.*"
+  replacement: "Villeneuve"
+
+- type: regex
+  pattern: "villingen.*"
+  replacement: "Villingen-Schwenningen"
+
+- type: regex
+  pattern: "villa\\s+de\\s+cucujaes|vila\\s+de\\s+cucujaes"
+  replacement: "Vila de Cucujães"
+
+- type: regex
+  pattern: "venaria.*"
+  replacement: "Venaria Reale"
+
+- type: regex
+  pattern: "venissieux|vénissieux.*"
+  replacement: "Vénissieux"
+
+- type: regex
+  pattern: "venta\\s+de\\s+banos"
+  replacement: "Venta de Baños"
+
+- type: regex
+  pattern: "verri[eé]res.*"
+  replacement: "Verrières-en-Anjou"
+
+- type: regex
+  pattern: "vetschau.*"
+  replacement: "Vetschau/Spreewald"
+
+- type: regex
+  pattern: "vicalvaro.*"
+  replacement: "Vicálvaro"
+
+- type: regex
+  pattern: "vitoria.*"
+  replacement: "Vitoria-Gasteiz"
+
+- type: regex
+  pattern: "vöckermarkt|voelkermarkt"
+  replacement: "Völkermarkt"
+
+- type: regex
+  pattern: "vsetin"
+  replacement: "Vsetín"
+
+- type: regex
+  pattern: "vyskov|vyškov"
+  replacement : "Vyskov"
+
+- type: regex
+  pattern: "varennes\\s+vauzelles"
+  replacement: "Varennes-Vauzelles"
+
+
+# W
+- type: equals
+  pattern: "vienne"
+  replacement: "Wien"
+
+- type: regex
+  pattern: "wangen.*"
+  replacement: "Wangen im Allgäu"
+
+- type: regex
+  pattern: "wandlitz.*"
+  replacement: "Wandlitz"
+
+- type: regex
+  pattern: "wangen-niederwang"
+  replacement: "Wangen im Allgäu"
+
+- type: regex
+  pattern: "wangen,\\s*saxony-anhalt"
+  replacement: "Wangen"
+
+- type: regex
+  pattern: "wangen\\s+im\\s+allgaeu"
+  replacement: "Wangen im Allgäu"
+
+- type: regex
+  pattern: "wangen\\s+im\\s+allgäu"
+  replacement: "Wangen im Allgäu"
+
+- type: regex
+  pattern: "warsaw|warzawa|warszawa|varsovie"
+  replacement: "Warszawa"
+
+- type: regex
+  pattern: "wegr[oó]w|węgr[oó]w"
+  replacement: "Węgrów"
+
+- type: regex
+  pattern: "weiden.*"
+  replacement: "Weiden in der Oberpfalz"
+
+- type: regex
+  pattern: "weiden\\s+in\\s+der\\s+oberpfalz"
+  replacement: "Weiden in der Oberpfalz"
+
+
+# X
+# --- Case & spacing normalization ---
+- type: regex
+  pattern: "xp\\s+ede"
+  replacement: "Ede"
+
+
+# Y 
+
+# --- Case & spacing normalization ---
+- type: regex
+  pattern: "yliskulma"
+  replacement: "Yliskulma"
+
+- type: regex
+  pattern: "yverdon.*"
+  replacement: "Yverdon-les-Bains"
+
+# Z
+
+# --- Case & spacing normalization ---
+- type: regex
+  pattern: "zmigr[oó]d"
+  replacement: "Żmigród"
+
+- type: regex
+  pattern: "zatec"
+  replacement: "Žatec"
+
+- type: regex
+  pattern: "zeuthen"
+  replacement: "Zeuthen"
+
+- type: regex
+  pattern: "znojmo.*"
+  replacement: "Znojmo"
+
+- type: regex
+  pattern: "zella-mehlis"
+  replacement: "Zella-Mehlis"
+
+- type: regex
+  pattern: "zgier"
+  replacement: "Zgierz"
+
+- type: regex
+  pattern: "zhuzhou"
+  replacement: "Zhuzhou"
+
+- type: regex
+  pattern: "zwoenitz"
+  replacement: "Zwönitz"
+
+- type: regex
+  pattern: "zürich.*|zuerich|zurich"
+  replacement: "Zürich"
+
+- type: regex
+  pattern: "zaltbommel"
+  replacement: "Zaltbommel"
+
+- type: regex
+  pattern: "zagreb"
+  replacement: "Zagreb"
+
+- type: regex
+  pattern: "zossen"
+  replacement: "Zossen"
+
+- type: regex
+  pattern: "zvolen"
+  replacement: "Zvolen"
+
+- type: regex
+  pattern: "zrenjanin"
+  replacement: "Zrenjanin"
+
+- type: regex
+  pattern: "zyrardow|żyrard[oó]w"
+  replacement: "Żyrardów"
+
+- type: regex
+  pattern: "zary"
+  replacement: "Żary"
+
+- type: regex
+  pattern: "zehdenick"
+  replacement: "Zehdenick"
+
+- type: regex
+  pattern: "zwickau"
+  replacement: "Zwickau"
+
+- type: regex
+  pattern: "zandt"
+  replacement: "Zandt"

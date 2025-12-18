@@ -1,0 +1,684 @@
+rules:
+
+# 0 - 9
+
+- type: startswith
+  pattern: "4pl cen"
+  replacement: "4PL Centralstation"
+
+- type: startswith
+  pattern: "4 pl cen"
+  replacement: "4PL Centralstation"
+
+# A 
+
+- type: startswith
+  pattern: "abb"
+  replacement: "ABB"
+
+- type: startswith
+  pattern: "abellio"
+  replacement: "Abellio"
+
+- type: startswith
+  pattern: "addit"
+  replacement: "Addit"
+
+- type: startswith
+  pattern: "aeg"
+  replacement: "AEG"
+
+- type: startswith
+  pattern: "agilis"
+  replacement: "Agilis"
+
+- type: startswith
+  pattern: "akg"
+  replacement: "AKG"
+
+- type: startswith
+  pattern: "akiem"
+  replacement: "Akiem"
+
+- type: startswith
+  pattern: "Alutec"
+  replacement: "Alutech"
+
+- type: contains
+  pattern: "alstom"
+  replacement: "Alstom"
+
+- type: contains
+  pattern: "asltom"
+  replacement: "Alstom"
+
+- type: contains
+  pattern: "alsom"
+  replacement: "Alstom"
+
+- type: contains
+  pattern: "alstorm"
+  replacement: "Alstom"
+
+- type: contains
+  pattern: "alstrom"
+  replacement: "Alstom"
+
+- type: contains
+  pattern: "alsstom"
+  replacement: "Alstom"
+
+- type: contains
+  pattern: "annax"
+  replacement: "Annax"
+
+- type: startswith
+  pattern: "asteelflash"
+  replacement: "Asteelflash"
+
+- type: startswith
+  pattern: "asteelfash"
+  replacement: "Asteelflash"
+
+- type: startswith
+  pattern: "atlas copco"
+  replacement: "Atlas Copco"
+
+- type: startswith
+  pattern: "atos"
+  replacement: "Atos"
+
+- type: startswith
+  pattern: "atelier mécanique vesin"
+  replacement: "Atelier Mécanique Vesin"
+
+- type: startswith
+  pattern: "atelier mecanique vesin"
+  replacement: "Atelier Mécanique Vesin"
+
+- type: startswith
+  pattern: "axtone"
+  replacement: "Axtone"
+
+- type: startswith
+  pattern: "az metal"
+  replacement: "AZ Metall"
+
+
+# B
+
+- type: startswith
+  pattern: "bega interna"
+  replacement: "Bega International"
+
+- type: startswith
+  pattern: "best seating syst"
+  replacement: "Best Seating Systems"
+
+- type: startswith
+  pattern: "bfg"
+  replacement: "BFG International"
+
+- type: contains
+  pattern: "bode"
+  replacement: "Bode"
+
+- type: contains
+  pattern: "bombardier"
+  replacement: "Alstom"
+
+- type: startswith
+  pattern: "bt netphen"
+  replacement: "Alstom"
+
+- type: startswith
+  pattern: "bt service"
+  replacement: "Alstom"
+
+- type: startswith
+  pattern: "bt sweden"
+  replacement: "Alstom"
+
+- type: startswith
+  pattern: "bt france"
+  replacement: "Alstom"
+
+- type: startswith
+  pattern: "bvg"
+  replacement: "BVG"
+
+- type: startswith
+  pattern: "berliner verke"
+  replacement: "BVG"
+
+- type: startswith
+  pattern: "bwb"
+  replacement: "BWB"
+
+# C
+
+- type: contains
+  pattern: "caf"
+  replacement: "CAF"
+
+- type: startswith
+  pattern: "cantus verkehrs"
+  replacement: "Cantus Verkehrsgesellschaft"
+
+- type: startswith
+  pattern: "cantiere"
+  replacement: "Cantiere Trenitalia"
+
+- type: startswith
+  pattern: "caniere"
+  replacement: "Cantiere Trenitalia"
+
+- type: startswith
+  pattern: "carl wilhelm cleff"
+  replacement: "Carl Wilheim Cleff"
+
+- type: startswith
+  pattern: "cd cargo"
+  replacement: "CD Cargo"
+
+- type: contains
+  pattern: "cff"
+  replacement: "CFF"
+
+- type: startswith
+  pattern: "chemins de fer f"
+  replacement: "CFF"
+
+- type: startswith
+  pattern: "cfl"
+  replacement: "CFL"
+
+- type: startswith
+  pattern: "cla tech"
+  replacement: "Cla Tech"
+
+# D
+
+- type: startswith
+  pattern: "daher"
+  replacement: "Daher"
+
+- type: contains
+  pattern: "deutsche bahn"
+  replacement: "Deutsche Bahn"
+
+- type: startswith
+  pattern: "db regio"
+  #replacement: "Deutsche Bahn Regio"
+  replacement: "Deutsche Bahn"
+
+- type: startswith
+  pattern: "db fernverk"
+  #replacement: "Deutsche Bahn Fernverkehr"
+  replacement: "Deutsche Bahn"
+
+- type: startswith
+  pattern: "db fahrzeu"
+  #replacement: "Deutsche Bahn Fahrzeuginstandhaltung"
+  replacement: "Deutsche Bahn"
+
+- type: startswith
+  pattern: "deutsche bank"
+  replacement: "Deutsche Bank"
+
+- type: contains
+  pattern: "delimon"
+  replacement: "Delimon"
+
+- type: contains
+  pattern: "dellner"
+  replacement: "Dellner"
+
+- type: regex
+  pattern: "deli?quin?g?n?ie?s"
+  replacement: "Delquignies"
+
+- type: regex
+  pattern: "delta ?nordic"
+  replacement: "Delta Nordic"
+
+
+- type: contains
+  pattern: "delta trans"
+  replacement: "Delta Trans"
+
+- type: contains
+  pattern: "dhl"
+  replacement: "DHL"
+
+- type: contains
+  pattern: "dks"
+  replacement: "DKS"
+
+- type: contains
+  pattern: "dmt demminer"
+  replacement: "DMT"
+
+- type: startswith
+  pattern: "dsb"
+  replacement: "DSB"
+
+- type: startswith
+  pattern: "dsv"
+  replacement: "DSV"
+
+- type: contains
+  pattern: "duagon"
+  replacement: "Duagon"
+
+- type: contains
+  pattern: "duisburger"
+  replacement: "Duisburger"
+
+- type: contains
+  pattern: "dunakeszi"
+  replacement: "Dunakeszi"
+
+- type: contains
+  pattern: "duray ula"
+  replacement: "Duray Ulasim"
+
+# E
+
+- type: startswith
+  pattern: "ec eng"
+  replacement: "EC Engineering"
+
+- type: startswith
+  pattern: "element metech"
+  replacement: "Element Metech"
+
+# F
+
+- type: regex
+  pattern: "f[a|e]iveley"
+  replacement: "Faiveley"
+
+- type: contains
+  pattern: "faively"
+  replacement: "Faiveley"
+
+- type: contains
+  pattern: "faro europe"
+  replacement: "Faro Europe"
+
+- type: contains
+  pattern: "flender"
+  replacement: "Flender"
+
+- type: contains
+  pattern: "fogtec"
+  replacement: "Fogtec"
+
+- type: contains
+  pattern: "franz kiel"
+  replacement: "Franz Kiel"
+
+- type: contains
+  pattern: "funkwerk"
+  replacement: "Funkwerk"
+
+# G
+
+- type: startswith
+  pattern: "gruber"
+  replacement: "Gruber"
+
+- type: startswith
+  pattern: "geta"
+  replacement: "Geta"
+
+- type: contains
+  pattern: "göcke"
+  replacement: "Göcke"
+
+- type: contains
+  pattern: "grammer"
+  replacement: "Grammer"
+
+- type: contains
+  pattern: "green cargo"
+  replacement: "Green Cargo"
+
+- type: contains
+  pattern: "gs elektro"
+  replacement: "GS Elektroanlagen"
+
+# H
+
+- type: startswith
+  pattern: "hadrian & co"
+  replacement: "Hadrian & Co"
+
+- type: startswith
+  pattern: "hansa"
+  replacement: "Hansa"
+
+- type: startswith
+  pattern: "hanjes"
+  replacement: "Hanjes"
+
+- type: startswith
+  pattern: "hanning"
+  replacement: "Hanning & Kahl"
+
+- type: startswith
+  pattern: "harting"
+  replacement: "Harting"
+
+- type: startswith
+  pattern: "huber"
+  replacement: "Huber+Suhner"
+
+- type: startswith
+  pattern: "hutchinson"
+  replacement: "Hutchinson"
+
+- type: regex
+  pattern: "hitat?chi"
+  replacement: "Hitachi"
+
+- type: regex
+  pattern: "h(?:ue|ü)bner"
+  replacement: "Hubner"
+
+# I
+
+- type: contains
+  pattern: "ife cr as"
+  replacement: "IFE CR AS"
+
+# J
+
+- type: regex
+  pattern: "j[a|á]rm[u|ü|ű] zrt"
+  replacement: "Jarmu Zrt"
+
+# K
+
+- type: contains
+  pattern: "kiepe"
+  replacement: "Kiepe"
+
+- type: startswith
+  pattern: "kb"
+  replacement: "Knorr Bremse"
+
+- type: contains
+  pattern: "knorr brem"
+  replacement: "Knorr Bremse"
+
+- type: startswith
+  pattern: "kabel technik polska"
+  replacement: "Kabel Technik Polska"
+
+- type: regex
+  pattern: "k(?:ue|ü)hne"
+  replacement: "Kuhne & Nagel"
+
+- type: startswith
+  pattern: "kvb"
+  replacement: "KVB"
+
+- type: startswith
+  pattern: "kwm"
+  replacement: "KWM"
+
+- type: startswith
+  pattern: "kiel"
+  replacement: "Kiel"
+
+- type : startswith
+  pattern : "karl kaldenberg"
+  replacement : "Karl Kaldenberg"
+
+- type : startswith
+  pattern : "kansai helios"
+  replacement : "Kansai Helios"
+
+- type: startswith
+  pattern: "kölner"
+  replacement: "Kölner"
+
+- type: startswith
+  pattern: "kopack"
+  replacement: "Kopack"
+
+- type: startswith
+  pattern: "kompozyty"
+  replacement: "Kompozyty"
+
+- type: startswith
+  pattern: "könig"
+  replacement: "König"
+
+# L
+
+- type: contains
+  pattern: "lakowa"
+  replacement: "Lakowa"
+
+- type: contains
+  pattern: "liebherr"
+  replacement: "Liebherr"
+
+- type: startswith
+  pattern: "lieherr"
+  replacement: "Liebherr"
+
+- type: startswith
+  pattern: "lucchini"
+  replacement: "Lucchini"
+
+- type: startswith
+  pattern: "luminator"
+  replacement: "Luminator"
+
+- type: startswith
+  pattern: "lummer & rudel"
+  replacement: "Lummer & Rudel"
+
+# M
+
+- type: startswith
+  pattern: "mahle"
+  replacement: "Mahle"
+
+- type: startswith
+  pattern: "mersen"
+  replacement: "Mersen"
+
+- type: startswith
+  pattern: "met chem"
+  replacement: "Met Chem"
+
+- type: startswith
+  pattern: "metrans dyko"
+  replacement: "Metrans Dyko"
+
+- type: startswith
+  pattern: "mgw"
+  replacement: "MGW"
+
+# N
+
+- type: contains
+  pattern: "nedtrain"
+  replacement: "Nedtrain"
+
+- type: contains
+  pattern: "ned train"
+  replacement: "Nedtrain"
+
+- type: startswith
+  pattern: "nmbs"
+  replacement: "NMBS"
+
+- type: startswith
+  pattern: "ntn"
+  replacement: "NTN"
+
+- type: startswith
+  pattern: "ntt"
+  replacement: "NTT"
+
+# O
+
+- type: startswith
+  pattern: "orgatex"
+  replacement: "Orgatex"
+
+- type: startswith
+  pattern: "öbb"
+  replacement: "ÖBB"
+
+- type: startswith
+  pattern: "opakmet"
+  replacement: "Opakmet"
+
+# P
+
+- type: startswith
+  pattern: "pch"
+  replacement: "PCH"
+
+- type: contains
+  pattern: "polmor"
+  replacement: "Polmor"
+
+# Q
+
+# R
+
+- type: contains
+  pattern: "rfww"
+  replacement: "RFWW"
+
+- type: startswith
+  pattern: "railpool"
+  replacement: "Railpool"
+
+- type: startswith
+  pattern: "rawicka fabryka"
+  replacement: "Rawicka Fabryka"
+
+- type: startswith
+  pattern: "rcs"
+  replacement: "RCS"
+
+# S
+
+- type: contains
+  pattern: "saft"
+  replacement: "SAFT"
+
+- type: startswith
+  pattern: "s bahn"
+  replacement: "S Bahn"
+
+- type: startswith
+  pattern: "sbb"
+  replacement: "SBB"
+
+- type: contains
+  pattern: "saint gobain"
+  replacement: "Saint Gobain"
+
+- type: contains
+  pattern: "sazcilar"
+  replacement: "Sazcilar"
+
+- type: regex
+  pattern: "sch(?:ae|ä)(?:ff|f)ler"
+  replacement: "Schaeffler"
+
+- type: startswith
+  pattern: "schaltbau"
+  replacement: "Schaltbau"
+
+- type: startswith
+  pattern: "schenker"
+  replacement: "Schenker"
+
+- type: startswith
+  pattern: "schunk"
+  replacement: "Schunk"
+
+- type: contains
+  pattern: "siemens"
+  replacement: "Siemens"
+
+- type: regex
+  pattern: "s[é|e]cheron"
+  replacement: "Secheron"
+
+- type: startswith
+  pattern: "skf"
+  replacement: "SKF"
+
+- type: contains
+  pattern: "sonepar"
+  replacement: "Sonepar"
+
+- type: startswith
+  pattern: "sperling"
+  replacement: "Sperling"
+
+- type: contains
+  pattern: "stadler"
+  replacement: "Stadler"
+
+- type: startswith
+  pattern: "stadtwerke verkehrsgesellschaft"
+  replacement: "Stadtwerke Verkehrsgesellschaft"
+
+- type: contains
+  pattern: "stahlwille"
+  replacement: "Stahlwille"
+
+# T
+
+- type: startswith
+  pattern: "tever technik"
+  replacement: "Tever Technik"
+
+# U
+
+# V
+
+- type: contains
+  pattern: "voith"
+  replacement: "Voith"
+
+# W
+
+- type: contains
+  pattern: "wabtec"
+  replacement: "Wabtec"
+
+- type: startswith
+  pattern: "wiener linien"
+  replacement: "Wiener Linien"
+
+- type: startswith
+  pattern: "Wiener Lokalbahn"
+  replacement: "Wiener Lokalbahn"
+
+# X
+
+# Y
+
+# Z
+
+- type: regex
+  pattern: "z[o|ö]llner"
+  replacement: "Zollner"
+
+- type: regex
+  pattern: "[z|ž]os"
+  replacement: "Zos"
