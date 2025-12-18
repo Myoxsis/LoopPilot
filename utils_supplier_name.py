@@ -8,10 +8,8 @@ replacement, and fuzzy matching against a known list of supplier names.
 from __future__ import annotations
 
 import csv
+from difflib import SequenceMatcher
 from typing import Iterable, List, Optional, Sequence
-
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
 
 from utils_data_cleansing import apply_rule, rough_clean
 
@@ -83,12 +81,15 @@ def guess_supplier_name(
     if cleaned in known_list:
         return cleaned
 
-    vectorizer = TfidfVectorizer(analyzer="char", ngram_range=(2, 4))
-    supplier_vectors = vectorizer.fit_transform(known_list)
-    query_vector = vectorizer.transform([cleaned])
+    # Lightweight fuzzy matching based on sequence similarity avoids the heavy
+    # scikit-learn dependency while still providing stable results for short
+    # supplier names.
+    best_score = 0.0
+    best_match: Optional[str] = None
+    for candidate in known_list:
+        score = SequenceMatcher(None, cleaned.lower(), candidate.lower()).ratio()
+        if score > best_score:
+            best_score = score
+            best_match = candidate
 
-    similarities = cosine_similarity(query_vector, supplier_vectors).flatten()
-    best_index = similarities.argmax()
-    best_score = float(similarities[best_index]) if similarities.size else 0.0
-
-    return known_list[best_index] if best_score >= min_score else cleaned
+    return best_match if best_match and best_score >= min_score else cleaned
