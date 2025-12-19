@@ -1,4 +1,3 @@
-import os
 from utils_supplier_name import (
     guess_supplier_name,
     guess_supplier_name_from_priority,
@@ -32,6 +31,16 @@ def test_guess_supplier_name_returns_best_fuzzy_match():
     result = guess_supplier_name("Siemen", known, rules=None, min_score=0.6)
 
     assert result == "Siemens"
+
+
+def test_guess_supplier_name_handles_longer_inputs_with_cosine_similarity():
+    known = ["Knorr Bremse", "Siemens"]
+
+    result = guess_supplier_name(
+        "Knorr Bremsee Rail Systems", known, rules=None, min_score=0.3
+    )
+
+    assert result == "Knorr Bremse"
 
 
 def test_guess_supplier_name_handles_missing_values():
