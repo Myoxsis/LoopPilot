@@ -6,6 +6,8 @@ Utility helpers and data files for normalizing supplier names and mapping them t
 
 `load_supplier_names(path)` reads supplier names from a semicolon-separated CSV file (e.g., `CONSIGNEE_NAME.csv`). `guess_supplier_name(name, known_suppliers, rules=None, min_score=0.7)` cleans the raw value, optionally applies normalization rules from `utils_data_cleansing`, and fuzzy matches it against a list of known supplier names. When you have multiple candidate columns for a supplier name, `guess_supplier_name_from_priority(names, known_suppliers, rules=None, min_score=0.7)` evaluates them in order and returns the first resolved match.
 
+For performance-sensitive workloads you can pre-fit a TF-IDF matcher once with `build_tfidf_matcher(known_suppliers, analyzer="char_wb", ngram_range=(2, 4))` and then call `batch_guess_supplier_names(names, known_suppliers, rules=None, min_score=0.7)` to cleanse many names using the shared model. A lightweight alternative that avoids scikit-learn is `fuzzy_guess_supplier_name(name, known_suppliers, rules=None, min_ratio=0.85)`, which uses Python's built-in sequence matching ratio.
+
 Example usage:
 
 ```python

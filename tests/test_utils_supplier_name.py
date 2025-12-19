@@ -1,4 +1,6 @@
 from utils_supplier_name import (
+    batch_guess_supplier_names,
+    fuzzy_guess_supplier_name,
     guess_supplier_name,
     guess_supplier_name_from_priority,
     load_supplier_names,
@@ -63,3 +65,20 @@ def test_guess_supplier_name_from_priority_returns_none_when_no_candidates():
     result = guess_supplier_name_from_priority([], known)
 
     assert result is None
+
+
+def test_batch_guess_supplier_names_reuses_vectorizer_for_multiple_inputs():
+    known = ["Siemens", "Knorr Bremse"]
+    raw_names = ["Siemen", "Knorr Bremsee Rail Systems", None]
+
+    results = batch_guess_supplier_names(raw_names, known, min_score=0.5)
+
+    assert results == ["Siemens", "Knorr Bremse", None]
+
+
+def test_fuzzy_guess_supplier_name_uses_ratio_matching():
+    known = ["Knorr Bremse", "Alstom"]
+
+    result = fuzzy_guess_supplier_name("Knor Bremse GmbH", known, min_ratio=0.6)
+
+    assert result == "Knorr Bremse"

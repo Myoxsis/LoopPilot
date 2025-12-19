@@ -8,7 +8,8 @@ replacement, and fuzzy matching against a known list of supplier names.
 from __future__ import annotations
 
 import csv
-from typing import List, Optional, Sequence
+from difflib import SequenceMatcher
+from typing import Any, List, Optional, Sequence, Tuple
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -40,6 +41,39 @@ def load_supplier_names(path: str) -> List[str]:
             if supplier_name:
                 supplier_names.append(supplier_name)
     return supplier_names
+
+
+def build_tfidf_matcher(
+    known_suppliers: Sequence[str],
+    *,
+    analyzer: str = "char_wb",
+    ngram_range: Tuple[int, int] = (2, 4),
+) -> Tuple[TfidfVectorizer, Any, List[str]]:
+    """Pre-compute a TF-IDF model for supplier matching.
+
+    This helper is designed for batch cleansing workflows where a single
+    vectorizer and similarity matrix can be reused across many inputs.
+
+    Args:
+        known_suppliers: Iterable of canonical supplier names.
+        analyzer: Tokenizer passed to :class:`~sklearn.feature_extraction.text.TfidfVectorizer`.
+            Defaults to a character analyzer with word boundaries.
+        ngram_range: N-gram span for the TF-IDF model. Defaults to bigrams
+            through four-grams.
+
+    Returns:
+        A tuple of ``(vectorizer, tfidf_matrix, known_list)`` where
+        ``tfidf_matrix`` contains the transformed supplier names in the
+        vectorizer's feature space. ``known_list`` preserves the casing of
+        ``known_suppliers`` for downstream lookups.
+    """
+
+    known_list: List[str] = list(known_suppliers)
+    if not known_list:
+        raise ValueError("known_suppliers must contain at least one value.")
+    vectorizer = TfidfVectorizer(analyzer=analyzer, ngram_range=ngram_range)
+    tfidf_matrix = vectorizer.fit_transform(rough_clean(name) for name in known_list)
+    return vectorizer, tfidf_matrix, known_list
 
 
 def guess_supplier_name(
@@ -146,3 +180,99 @@ def guess_supplier_name_from_priority(
             return resolved
 
     return None
+
+
+def batch_guess_supplier_names(
+    names: Sequence[Optional[str]],
+    known_suppliers: Sequence[str],
+    rules: Optional[Sequence[dict]] = None,
+    min_score: float = 0.7,
+    analyzer: str = "char_wb",
+    ngram_range: Tuple[int, int] = (2, 4),
+) -> List[Optional[str]]:
+    """Cleanse supplier names in bulk using a shared TF-IDF model.
+
+    Unlike :func:`guess_supplier_name`, this function fits the TF-IDF
+    vectorizer once for the provided ``known_suppliers`` and reuses it for
+    every input name. This can significantly reduce runtime when cleansing
+    large datasets while producing the same cosine-similarity based matches.
+
+    Empty strings and ``None`` values in ``names`` are preserved as ``None``
+    to make the function suitable for column-wise processing in pandas.
+    """
+
+    if not known_suppliers:
+        return [None for _ in names]
+
+    vectorizer, tfidf_matrix, known_list = build_tfidf_matcher(
+        known_suppliers, analyzer=analyzer, ngram_range=ngram_range
+    )
+
+    results: List[Optional[str]] = []
+    for raw in names:
+        if raw is None:
+            results.append(None)
+            continue
+
+        prepared = raw.strip()
+        if not prepared:
+            results.append(None)
+            continue
+
+        cleaned = apply_rule(prepared, rules) if rules else rough_clean(prepared).title()
+        target = rough_clean(cleaned)
+        if not target.strip():
+            results.append(cleaned)
+            continue
+
+        target_vec = vectorizer.transform([target])
+        similarities = cosine_similarity(target_vec, tfidf_matrix).ravel()
+
+        if similarities.size:
+            best_index = int(similarities.argmax())
+            best_score = float(similarities[best_index])
+            if best_score >= min_score:
+                results.append(known_list[best_index])
+                continue
+
+        results.append(cleaned)
+
+    return results
+
+
+def fuzzy_guess_supplier_name(
+    name: Optional[str],
+    known_suppliers: Sequence[str],
+    rules: Optional[Sequence[dict]] = None,
+    min_ratio: float = 0.85,
+) -> Optional[str]:
+    """Return the best fuzzy match using a token-based similarity ratio.
+
+    This matcher is intentionally lightweight, relying on Python's standard
+    library ``difflib.SequenceMatcher`` instead of scikit-learn. It is useful
+    when you want a simpler ratio-style score or when scikit-learn is
+    unavailable in the runtime environment.
+    """
+
+    if name is None:
+        return None
+
+    known_list: List[str] = list(known_suppliers)
+    if not known_list:
+        return None
+
+    cleaned = apply_rule(name, rules) if rules else rough_clean(name).title()
+    target = rough_clean(cleaned)
+    if not target.strip():
+        return cleaned
+
+    best_score = 0.0
+    best_match: Optional[str] = None
+    for candidate in known_list:
+        normalized_candidate = rough_clean(candidate)
+        ratio = SequenceMatcher(None, target, normalized_candidate).ratio()
+        if ratio > best_score:
+            best_score = ratio
+            best_match = candidate
+
+    return best_match if best_score >= min_ratio else cleaned
