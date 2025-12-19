@@ -83,6 +83,14 @@ print(coords)  # [52.3667, 4.9]
   Deutsche Bahn;7935
   ```
 
+## Getting started
+
+Install dependencies into your virtual environment:
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Running analysis
 
 - **Notebook**: Open `analysis.ipynb` in Jupyter (e.g., `jupyter notebook` or `jupyter lab`) to explore the cleansing/geolocation logic interactively. The notebook expects the helper modules and data files in the repository root.
@@ -90,4 +98,10 @@ print(coords)  # [52.3667, 4.9]
 
 ## Testing
 
-No automated test suite is configured. Run the usage snippets above (or cells within `analysis.ipynb`) to validate changes locally.
+Automated tests are available via `pytest`:
+
+```bash
+pytest
+```
+
+The tests exercise the supplier name matching and geolocation utilities with sample data to validate their behavior.
